@@ -12,7 +12,7 @@ import java.util.List;
 public class FirstHomeWorkTest {
     private final String HOME_PAGE = "http://rus.delfi.lv/";
     private final String ARTICLE_NAME = "Таиланд: из затопленной пещеры спасли всех подростков";
-    private final By ARTICLE_PATH = By.xpath(".//div[@id=\"column1-top\"]");
+    private final By ARTICLE_PATH = By.xpath(".//div[@id=\"content\"]");
 
     @Test
     public void сheckArticleAtHomePageTest() {
