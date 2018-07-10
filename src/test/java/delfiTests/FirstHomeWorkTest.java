@@ -10,13 +10,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.List;
 
 public class FirstHomeWorkTest {
-    private final String HOME_PAGE = "http://rus.delfi.lv";
-    private final String ARTICLE_NAME = "Четыре желтые буквы. Как IKEA изменит жизнь в Латвии";
-    private final By ARTICLE_PATH = By.xpath(".//a[@href=\"http://www.delfi.lv/biznes/bizopinion/chetyre-zheltye-bukvy-kak-ikea-izmenit-zhizn-v-latvii.d?id=50121303\"]");
+    private final String HOME_PAGE = "http://rus.delfi.lv/";
+    private final String ARTICLE_NAME = "Таиланд: из затопленной пещеры спасли всех подростков";
+    private final By ARTICLE_PATH = By.xpath(".//div[@id=\"column1-top\"]");
 
     @Test
     public void сheckArticleAtHomePageTest() {
-        System.setProperty("webdriver.gecko.driver", "C:/Java/geckodriver/geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "C:/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.get(HOME_PAGE);
