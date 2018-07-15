@@ -11,8 +11,8 @@ import java.util.List;
 
 public class FirstHomeWorkTest {
     private final String HOME_PAGE = "http://rus.delfi.lv/";
-    private final String ARTICLE_NAME = "Таиланд: из затопленной пещеры спасли всех подростков";
-    private final By ARTICLE_PATH = By.xpath(".//div[@id=\"content\"]");
+    private final String ARTICLE_NAME = "Синоптики: в воскресенье ожидается жаркий день с грозовыми ливнями";
+    private final By ARTICLE_PATH = By.xpath("//div[@class=\"top2012 top2014 content-cb-42333142\"]");
 
     @Test
     public void сheckArticleAtHomePageTest() {
