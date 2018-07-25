@@ -13,11 +13,11 @@ public class AtverskapiTest {
     private WebDriver driver;
 
     private final String HOME_PAGE = "http://www.delfi.lv/";
-    private final By DROP_DOWN_BTN = By.xpath("//a[@class='headerSeparatedNavDropButton']");
+    private final By DROPDOWN_BTN = By.xpath("//a[@class='headerSeparatedNavDropButton']");
     private final By DROPDOWN_MENU_ITEMS = By.xpath("//a[@class='sitemap-link']");
     private final By DROPDOWN_MENU_WOMAN = By.xpath("//a[@class='dropdown-toggle']");
-    private final By DROPDOWN_MENU_SWIMWEAR = By.xpath("//ul[@class='dropdown-menu']/li");
-    private final By FILTER_CHECKBOX = By.xpath("//div[@class='filters-content']");
+    private final By WOMAN_DROPDOWN_MENU_ITEM = By.xpath("//ul[@class='dropdown-menu']/li/a");
+    private final By CHECKBOX_FILTER = By.xpath("//div[@class='filters-content']");
     private final By COLOR_FILTER = By.xpath("//div[@class='row filter-colors']");
 
     @Test
@@ -28,13 +28,15 @@ public class AtverskapiTest {
         driver.manage().window().maximize();
         driver.get(HOME_PAGE);
 
-        driver.findElement(DROP_DOWN_BTN).click();
+        driver.findElement(DROPDOWN_BTN).click();
         selectDropdownMenuItem("Atverskapi");
         selectWomanDropdownBtn("Sievietēm");
-        selectSwimwearItem("Peldostīmi");
 
-        selectFilter("Peldkostīmi", FILTER_CHECKBOX);
+        selectWomanDropdownMenuItem("peldkostimi");
+
+        selectFilter("Peldkostīmi", CHECKBOX_FILTER);
         selectFilter("Red", COLOR_FILTER);
+        selectFilter("Jauns", CHECKBOX_FILTER);
 
     }
 
@@ -61,13 +63,13 @@ public class AtverskapiTest {
         }
     }
 
-    private void selectSwimwearItem(String sweamwearItem) {
+    private void selectWomanDropdownMenuItem(String Item) {
 
-        List<WebElement> dropdownMenuList = driver.findElements(DROPDOWN_MENU_SWIMWEAR);
+        List<WebElement> womanDropdownMenuList = driver.findElements(WOMAN_DROPDOWN_MENU_ITEM);
 
-        for (int i = 0; i < dropdownMenuList.size(); i++) {
-            if (dropdownMenuList.get(i).getText().contains(sweamwearItem)) {
-                dropdownMenuList.get(i).click();
+        for (int i = 0; i < womanDropdownMenuList.size(); i++) {
+            if (womanDropdownMenuList.get(i).getText().contains(Item)) {
+                womanDropdownMenuList.get(i).click();
                 break;
             }
         }
