@@ -5,8 +5,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+
 
 public class AtverskapiTest {
 
@@ -16,9 +19,10 @@ public class AtverskapiTest {
     private final By DROPDOWN_BTN = By.xpath("//a[@class='headerSeparatedNavDropButton']");
     private final By DROPDOWN_MENU_ITEMS = By.xpath("//a[@class='sitemap-link']");
     private final By DROPDOWN_MENU_WOMAN = By.xpath("//a[@class='dropdown-toggle']");
-    private final By WOMAN_DROPDOWN_MENU_ITEM = By.xpath("//ul[@class='dropdown-menu']/li/a");
+    private final By WOMAN_DROPDOWN_MENU_ITEM = By.xpath("//li[@itemprop='name']");
     private final By CHECKBOX_FILTER = By.xpath("//div[@class='filters-content']");
     private final By COLOR_FILTER = By.xpath("//div[@class='row filter-colors']");
+
 
     @Test
     public void swimwearFilterTest() {
@@ -32,7 +36,9 @@ public class AtverskapiTest {
         selectDropdownMenuItem("Atverskapi");
         selectWomanDropdownBtn("Sievietēm");
 
-        selectWomanDropdownMenuItem("peldkostimi");
+        selectWomanDropdownMenuItem("Apakšveļa/ Peldkostimi");
+       waitLoad();
+
 
         selectFilter("Peldkostīmi", CHECKBOX_FILTER);
         selectFilter("Red", COLOR_FILTER);
@@ -85,6 +91,11 @@ public class AtverskapiTest {
                 break;
             }
         }
+    }
+
+    private void waitLoad() {
+
+        new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOfElementLocated(WOMAN_DROPDOWN_MENU_ITEM));
     }
 }
 
