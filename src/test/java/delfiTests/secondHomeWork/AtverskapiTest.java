@@ -19,7 +19,7 @@ public class AtverskapiTest {
     private final By DROPDOWN_BTN = By.xpath("//a[@class='headerSeparatedNavDropButton']");
     private final By DROPDOWN_MENU_ITEMS = By.xpath("//a[@class='sitemap-link']");
     private final By DROPDOWN_MENU_WOMAN = By.xpath("//a[@class='dropdown-toggle']");
-    private final By WOMAN_DROPDOWN_MENU_ITEM = By.xpath("//li[@itemprop='name']");
+    private final By WOMAN_DROPDOWN_MENU_ITEM = By.xpath("//ul[@class='dropdown-menu']/li");
     private final By CHECKBOX_FILTER = By.xpath("//div[@class='filters-content']");
     private final By COLOR_FILTER = By.xpath("//div[@class='row filter-colors']");
 
@@ -37,8 +37,7 @@ public class AtverskapiTest {
         selectWomanDropdownBtn("Sievietēm");
 
         selectWomanDropdownMenuItem("Apakšveļa/ Peldkostimi");
-       waitLoad();
-
+        waitLoad();
 
         selectFilter("Peldkostīmi", CHECKBOX_FILTER);
         selectFilter("Red", COLOR_FILTER);
