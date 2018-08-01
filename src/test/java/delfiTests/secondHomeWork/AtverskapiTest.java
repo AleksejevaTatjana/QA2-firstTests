@@ -5,24 +5,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.List;
-
 
 public class AtverskapiTest {
 
     private WebDriver driver;
-
     private final String HOME_PAGE = "http://www.delfi.lv/";
     private final By DROPDOWN_BTN = By.xpath("//a[@class='headerSeparatedNavDropButton']");
     private final By DROPDOWN_MENU_ITEMS = By.xpath("//a[@class='sitemap-link']");
     private final By DROPDOWN_MENU_WOMAN = By.xpath("//a[@class='dropdown-toggle']");
     private final By WOMAN_DROPDOWN_MENU_ITEM = By.xpath("//ul[@class='dropdown-menu']/li");
-    private final By CHECKBOX_FILTER = By.xpath("//div[@class='filters-content']");
-    private final By COLOR_FILTER = By.xpath("//div[@class='row filter-colors']");
-
+    private final By CHECKBOX_FILTER = By.xpath("//div[@class='filters-content']/div/label");
+    private final By COLOR_FILTER = By.xpath("//div[@class='col-xs-2 filter-colors-item']");
+    private final By REGION_DROPDOWN_BTN = By.name("district");
+    private final By REGION_REGION_NAME = By.xpath("//div[@class='filters-content']/select/option");
+    private final By FILTRET_BTN = By.xpath("//button[@class='btn btn-block btn-blue']");
 
     @Test
     public void swimwearFilterTest() {
@@ -35,14 +32,21 @@ public class AtverskapiTest {
         driver.findElement(DROPDOWN_BTN).click();
         selectDropdownMenuItem("Atverskapi");
         selectWomanDropdownBtn("Sievietēm");
-
-        selectWomanDropdownMenuItem("Apakšveļa/ Peldkostimi");
-        waitLoad();
+        selectWomanDropdownMenuItem("Apakšveļa / Peldkostīmi");
 
         selectFilter("Peldkostīmi", CHECKBOX_FILTER);
-        selectFilter("Red", COLOR_FILTER);
-        selectFilter("Jauns", CHECKBOX_FILTER);
+        // waitLoadCheckbox();
 
+        selectFilter("Jauns", CHECKBOX_FILTER);
+        // waitLoadCheckbox();
+
+        selectFilter("Tumši sarkana", COLOR_FILTER);
+        // waitLoadColor();
+
+        driver.findElement(REGION_DROPDOWN_BTN).click();
+        selectRegionFilterItem("Rīgas rajons", REGION_REGION_NAME);
+
+        driver.findElement(FILTRET_BTN).click();
     }
 
     private void selectDropdownMenuItem(String dropdownMenuItem) {
@@ -68,12 +72,12 @@ public class AtverskapiTest {
         }
     }
 
-    private void selectWomanDropdownMenuItem(String Item) {
+    private void selectWomanDropdownMenuItem(String item) {
 
         List<WebElement> womanDropdownMenuList = driver.findElements(WOMAN_DROPDOWN_MENU_ITEM);
 
         for (int i = 0; i < womanDropdownMenuList.size(); i++) {
-            if (womanDropdownMenuList.get(i).getText().contains(Item)) {
+            if (womanDropdownMenuList.get(i).getText().equals(item)) {
                 womanDropdownMenuList.get(i).click();
                 break;
             }
@@ -92,9 +96,25 @@ public class AtverskapiTest {
         }
     }
 
-    private void waitLoad() {
 
-        new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOfElementLocated(WOMAN_DROPDOWN_MENU_ITEM));
+    private void selectRegionFilterItem(String regionName, By locator) {
+        List<WebElement> dropdownRegionList = driver.findElements(locator);
+        driver.findElement(REGION_REGION_NAME).click();
+
+        for (int i = 0; i < dropdownRegionList.size(); i++) {
+            if (dropdownRegionList.get(i).getText().contains(regionName)) {
+                dropdownRegionList.get(i).click();
+                break;
+            }
+        }
     }
+
+    // private void waitLoadCheckbox() {
+    //      new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(CHECKBOX_FILTER));
+    //   }
+
+    // private void waitLoadColor() {
+    //     new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(COLOR_FILTER));
+    // }
 }
 
