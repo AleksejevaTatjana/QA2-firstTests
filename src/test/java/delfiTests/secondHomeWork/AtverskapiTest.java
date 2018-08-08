@@ -42,8 +42,8 @@ public class AtverskapiTest {
         apaksvelaPeldkostimiPage.openFirstSweamwearPage(0);
 
         FirstSweamwearPage firstSweamwearPage = new FirstSweamwearPage(baseFunc);
-        String firstSweamwear = FirstSweamwearPage.getSweamwear("Peldkostīmi", "Tumši sarkana", "Jauns", "Rīgas rajons");
-        Assert.assertEquals("Sweamwear does not filtred", sweamwear, firstSweamwear);
+        firstSweamwearPage.getSweamwear("Peldkostīmi", "Tumši sarkana", "Jauns", "Rīgas rajons");
+        Assert.assertEquals("Sweamwear does not filtred", sweamwear);
 
     }
 }
