@@ -8,7 +8,7 @@ import java.util.List;
 public class ApaksvelaPeldkostimiPage {
 
     BaseFunc baseFunc;
-    private final By FIRST_SWEAMWEAR = By.xpath("//div[@class='col-xs-6 col-sm-3']");
+    private final By FIRST_SWEAMWEAR_PAGE = By.xpath("//div[@class='col-xs-6 col-sm-3']");
 
 
     public ApaksvelaPeldkostimiPage(BaseFunc baseFunc) {
@@ -54,10 +54,11 @@ public class ApaksvelaPeldkostimiPage {
             }
         }
     }
-    public String getSweamwear(String itemName, String colorName, String conditionName,String regionName) {
-        return baseFunc.getElement(FIRST_SWEAMWEAR).getText();
-    }
+    public WebElement getSweamwearByID(Integer id) {
+        List<WebElement> sweamwears = baseFunc.getElements(FIRST_SWEAMWEAR_PAGE);
+        return sweamwears.get(id);
 
+    }
     public String getSweamwearById(Integer id) {
         return getSweamwearByID(id).getText();
     }
@@ -65,11 +66,6 @@ public class ApaksvelaPeldkostimiPage {
     public FirstSweamwearPage openFirstSweamwearPage(Integer id) {
         getSweamwearByID(id).click();
         return new FirstSweamwearPage(baseFunc);
-    }
-
-    private WebElement getSweamwearByID(Integer id) {
-        List<WebElement> articles = baseFunc.getElements(FIRST_SWEAMWEAR);
-        return articles.get(id);
     }
 
 

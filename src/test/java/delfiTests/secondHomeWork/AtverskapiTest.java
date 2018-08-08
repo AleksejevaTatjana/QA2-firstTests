@@ -13,7 +13,7 @@ public class AtverskapiTest {
     private final By REGION_NAME = By.xpath("//div[@class='filters-content']/select/option");
 
     //private final By LIST_OF_SWIMWEARS = By.xpath();
-   //private final String SECOND_SWEAMWEAR = "http://atverskapi.delfi.lv/lv/style/sludinajumi/2009283-sarkans-peldkostims";
+    //private final String SECOND_SWEAMWEAR = "http://atverskapi.delfi.lv/lv/style/sludinajumi/2009283-sarkans-peldkostims";
 
     BaseFunc baseFunc = new BaseFunc();
 
@@ -41,7 +41,8 @@ public class AtverskapiTest {
         String sweamwear = apaksvelaPeldkostimiPage.getSweamwearById(0);
         apaksvelaPeldkostimiPage.openFirstSweamwearPage(0);
 
-        String firstSweamwear = apaksvelaPeldkostimiPage.getSweamwear("Peldkostīmi", "Tumši sarkana", "Jauns", "Rīgas rajons");
+        FirstSweamwearPage firstSweamwearPage = new FirstSweamwearPage(baseFunc);
+        String firstSweamwear = FirstSweamwearPage.getSweamwear("Peldkostīmi", "Tumši sarkana", "Jauns", "Rīgas rajons");
         Assert.assertEquals("Sweamwear does not filtred", sweamwear, firstSweamwear);
 
     }
