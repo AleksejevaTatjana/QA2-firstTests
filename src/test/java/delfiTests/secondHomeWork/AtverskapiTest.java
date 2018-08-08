@@ -12,9 +12,6 @@ public class AtverskapiTest {
     private final By REGION_DROPDOWN_BTN = By.name("district");
     private final By REGION_NAME = By.xpath("//div[@class='filters-content']/select/option");
 
-    //private final By LIST_OF_SWIMWEARS = By.xpath();
-    //private final String SECOND_SWEAMWEAR = "http://atverskapi.delfi.lv/lv/style/sludinajumi/2009283-sarkans-peldkostims";
-
     BaseFunc baseFunc = new BaseFunc();
 
     @Test
@@ -42,8 +39,10 @@ public class AtverskapiTest {
         apaksvelaPeldkostimiPage.openFirstSweamwearPage(0);
 
         FirstSweamwearPage firstSweamwearPage = new FirstSweamwearPage(baseFunc);
-        firstSweamwearPage.getSweamwear("Peldkostīmi", "Tumši sarkana", "Jauns", "Rīgas rajons");
+        firstSweamwearPage.getSweamwear("Peldkostīms", "Tumši sarkana", "Jauns", "Rīgas rajons");
         Assert.assertEquals("Sweamwear does not filtred", sweamwear);
+
+
 
     }
 }

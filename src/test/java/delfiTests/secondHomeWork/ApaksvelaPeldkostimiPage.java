@@ -8,7 +8,7 @@ import java.util.List;
 public class ApaksvelaPeldkostimiPage {
 
     BaseFunc baseFunc;
-    private final By FIRST_SWEAMWEAR_PAGE = By.xpath("//div[@class='col-xs-6 col-sm-3']");
+    private final By LIST_OF_SWEAMWEARS = By.xpath("//div[@class='col-xs-6 col-sm-3']");
 
 
     public ApaksvelaPeldkostimiPage(BaseFunc baseFunc) {
@@ -55,7 +55,7 @@ public class ApaksvelaPeldkostimiPage {
         }
     }
     public WebElement getSweamwearByID(Integer id) {
-        List<WebElement> sweamwears = baseFunc.getElements(FIRST_SWEAMWEAR_PAGE);
+        List<WebElement> sweamwears = baseFunc.getElements(LIST_OF_SWEAMWEARS);
         return sweamwears.get(id);
 
     }
