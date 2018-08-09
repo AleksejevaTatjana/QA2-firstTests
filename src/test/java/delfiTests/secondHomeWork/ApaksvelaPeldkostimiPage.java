@@ -8,7 +8,7 @@ import java.util.List;
 public class ApaksvelaPeldkostimiPage {
 
     BaseFunc baseFunc;
-    private final By LIST_OF_SWEAMWEARS = By.xpath("//div[@class='col-xs-6 col-sm-3']");
+    private final By LIST_OF_SWEAMWEARS = By.xpath("//section[@class='row']/div");
 
 
     public ApaksvelaPeldkostimiPage(BaseFunc baseFunc) {
