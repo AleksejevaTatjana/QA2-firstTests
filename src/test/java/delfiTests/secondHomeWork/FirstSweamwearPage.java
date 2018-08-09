@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 public class FirstSweamwearPage {
 
     BaseFunc baseFunc;
-    public final By FIRST_SWEAMWEAR = By.xpath("//div[@class='col-xs-12 col-md-6 product-description']");
+    public final By FIRST_SWEAMWEAR = By.xpath("//div[@class='col-xs-12 col-md-6 product-description']/table");
 
     public FirstSweamwearPage(BaseFunc baseFunc) {
         this.baseFunc = baseFunc;
