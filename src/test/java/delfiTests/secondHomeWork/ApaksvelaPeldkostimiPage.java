@@ -1,11 +1,14 @@
 package delfiTests.secondHomeWork;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ApaksvelaPeldkostimiPage {
+
 
     BaseFunc baseFunc;
     private final By LIST_OF_SWEAMWEARS = By.xpath("//section[@class='row']/div");
@@ -63,11 +66,10 @@ public class ApaksvelaPeldkostimiPage {
         return getSweamwearByID(id).getText();
     }
 
-    public FirstSweamwearPage openFirstSweamwearPage(Integer id) {
+    public FirstSweamwearPage openSweamwearPage(Integer id) {
         getSweamwearByID(id).click();
         return new FirstSweamwearPage(baseFunc);
     }
 
 
 }
-

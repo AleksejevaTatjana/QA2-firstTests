@@ -12,11 +12,11 @@ public class FirstSweamwearPage {
         this.baseFunc = baseFunc;
     }
 
+
     public String getSweamwear(String item, String color, String condition,String region) {
         return baseFunc.getElement(FIRST_SWEAMWEAR).getText();
     }
 
 }
-
 
 

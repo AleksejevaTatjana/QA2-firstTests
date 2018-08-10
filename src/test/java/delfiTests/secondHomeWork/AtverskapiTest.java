@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
+
 public class AtverskapiTest {
     private final String HOME_PAGE = "http://www.delfi.lv/";
     private final By CHECKBOX_ITEM = By.xpath("//div[@class='step3-container']/div/label");
@@ -36,14 +37,18 @@ public class AtverskapiTest {
 
 
         String sweamwear = apaksvelaPeldkostimiPage.getSweamwearById(0);
-        apaksvelaPeldkostimiPage.openFirstSweamwearPage(0);
+        apaksvelaPeldkostimiPage.openSweamwearPage(0);
 
         FirstSweamwearPage firstSweamwearPage = new FirstSweamwearPage(baseFunc);
         firstSweamwearPage.getSweamwear("PELDKOSTĪMS", "Tumši sarkana", "Jauns", "Rīgas rajons");
         Assert.assertEquals("Sweamwear does not filtred", sweamwear);
 
+        //baseFunc.returnPage()
+       // assert apaksvelaPeldkostimiPage.getSweamwearByID(1 - 5).getText().equals(sweamwear);
 
 
     }
 }
+
+
 

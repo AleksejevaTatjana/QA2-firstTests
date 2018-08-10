@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BaseFunc {
@@ -25,6 +26,12 @@ public class BaseFunc {
         }
         driver.get(url);
     }
+
+   // public returnPage(String url, By locator) {
+  //      driver.close();
+   //     return driver.getCurrentUrl().equals(url, locator);
+ //  }
+
 
     public List<WebElement> getElements(By locator) {
         Assert.assertFalse("No elements found", driver.findElements(locator).isEmpty());
