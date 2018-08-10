@@ -11,6 +11,7 @@ public class ApaksvelaPeldkostimiPage {
 
 
     BaseFunc baseFunc;
+
     private final By LIST_OF_SWEAMWEARS = By.xpath("//section[@class='row']/div");
 
 
@@ -62,9 +63,13 @@ public class ApaksvelaPeldkostimiPage {
         return sweamwears.get(id);
 
     }
+
+
+
     public String getSweamwearById(Integer id) {
         return getSweamwearByID(id).getText();
     }
+
 
     public FirstSweamwearPage openSweamwearPage(Integer id) {
         getSweamwearByID(id).click();
