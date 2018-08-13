@@ -1,10 +1,8 @@
 package delfiTests.secondHomeWork;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ApaksvelaPeldkostimiPage {
@@ -13,6 +11,8 @@ public class ApaksvelaPeldkostimiPage {
     BaseFunc baseFunc;
 
     private final By LIST_OF_SWEAMWEARS = By.xpath("//section[@class='row']/div");
+
+
 
 
     public ApaksvelaPeldkostimiPage(BaseFunc baseFunc) {
@@ -58,12 +58,12 @@ public class ApaksvelaPeldkostimiPage {
             }
         }
     }
+
+
     public WebElement getSweamwearByID(Integer id) {
-        List<WebElement> sweamwears = baseFunc.getElements(LIST_OF_SWEAMWEARS);
+       List<WebElement> sweamwears = baseFunc.getElements(LIST_OF_SWEAMWEARS);
         return sweamwears.get(id);
-
     }
-
 
 
     public String getSweamwearById(Integer id) {
@@ -71,10 +71,12 @@ public class ApaksvelaPeldkostimiPage {
     }
 
 
-    public FirstSweamwearPage openSweamwearPage(Integer id) {
+   public FirstSweamwearPage openSweamwearPage(Integer id) {
         getSweamwearByID(id).click();
         return new FirstSweamwearPage(baseFunc);
     }
+
+
 
 
 }
