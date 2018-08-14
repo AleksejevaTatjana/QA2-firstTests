@@ -7,13 +7,7 @@ import java.util.List;
 
 public class ApaksvelaPeldkostimiPage {
 
-
     BaseFunc baseFunc;
-
-    private final By LIST_OF_SWEAMWEARS = By.xpath("//section[@class='row']/div");
-
-
-
 
     public ApaksvelaPeldkostimiPage(BaseFunc baseFunc) {
         this.baseFunc = baseFunc;
@@ -59,24 +53,10 @@ public class ApaksvelaPeldkostimiPage {
         }
     }
 
-
-    public WebElement getSweamwearByID(Integer id) {
-       List<WebElement> sweamwears = baseFunc.getElements(LIST_OF_SWEAMWEARS);
-        return sweamwears.get(id);
-    }
-
-
-    public String getSweamwearById(Integer id) {
-        return getSweamwearByID(id).getText();
-    }
-
-
-   public FirstSweamwearPage openSweamwearPage(Integer id) {
-        getSweamwearByID(id).click();
-        return new FirstSweamwearPage(baseFunc);
-    }
-
-
-
-
 }
+
+
+
+
+
+

@@ -9,5 +9,5 @@ public class SecondSweamwearPage {
     public SecondSweamwearPage(BaseFunc baseFunc) {
         this.baseFunc = baseFunc;
     }
-
+    private final String SECOND_SWEAMWEAR_PAGE = "http://atverskapi.delfi.lv/lv/style/sludinajumi/2009283-sarkans-peldkostims";
 }
