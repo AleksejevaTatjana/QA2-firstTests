@@ -1,9 +1,9 @@
 package delfiTests.secondHomeWork;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ApaksvelaPeldkostimiPage {
@@ -12,8 +12,8 @@ public class ApaksvelaPeldkostimiPage {
     private final By COLOR_FILTER = By.xpath("//div[@class='col-xs-2 col-sm-1 filter-colors-item']/label");
     private final By REGION_NAME = By.xpath("//div[@class='filters-content']/select/option");
     private final By LIST_OF_SWEAMWEARS = By.xpath("//section[@class='row']/div");
-    private final By ATVERSKAPI_JAUNS = By.xpath(".//div[contains(text(), 'Jauns peldkostīmi')]");
-
+    private final By APAKSVELA_PELDKOSTIMI_PAGE_ITEM = By.xpath(".//div[contains(text(), 'Jauns peldkostīmi')]");
+    private final By FILTERED_LIST_OF_SWEAMWEARS = By.xpath("//div[@class='col-xs-6 col-sm-3']/div");
 
     BaseFunc baseFunc;
 
@@ -61,12 +61,12 @@ public class ApaksvelaPeldkostimiPage {
         }
     }
 
-    public String atverskapiJauns() {
-        return baseFunc.getElement(ATVERSKAPI_JAUNS).getText();
+    public String apaksvelaPeldkostimiItem() {
+        return baseFunc.getElement(APAKSVELA_PELDKOSTIMI_PAGE_ITEM).getText();
     }
 
 
-   public void openSweamwearPage(Integer id) {
+    public void openSweamwearPage(Integer id) {
         baseFunc.getSweamwearByID(id).click();
     }
 
@@ -78,6 +78,26 @@ public class ApaksvelaPeldkostimiPage {
             if (sweamwears.get(i).getText().equals(i)) {
                 sweamwears.get(i).click();
                 break;
+            }
+        }
+    }
+
+    public void listAndLoops() {
+        List<WebElement> sweamwears = new ArrayList<WebElement>();
+        sweamwears.get(1).findElements(FILTERED_LIST_OF_SWEAMWEARS);
+
+        List<String> links = new ArrayList<String>();
+
+        for (int i = 1; i < sweamwears.size(); i++) {
+            String link = sweamwears.get(i).getAttribute("href");
+            links.add(link);
+
+            for (int id = 1; id < 5; id++) {
+                ApaksvelaPeldkostimiPage apaksvelaPeldkostimiPage = new ApaksvelaPeldkostimiPage(baseFunc);
+                FirstSweamwearPage firstSweamwearPage = new FirstSweamwearPage(baseFunc);
+                apaksvelaPeldkostimiPage.openSweamwearPage(id);
+                firstSweamwearPage.checkAllFilters();
+
             }
         }
     }
