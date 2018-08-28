@@ -1,4 +1,4 @@
-package delfiTests.secondHomeWork;
+package delfiTests.atverskapiTest.pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;

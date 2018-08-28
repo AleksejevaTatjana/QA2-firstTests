@@ -1,5 +1,6 @@
-package delfiTests.secondHomeWork;
+package delfiTests.atverskapiTest;
 
+import delfiTests.atverskapiTest.pages.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -14,6 +15,7 @@ public class AtverskapiTest {
 
     BaseFunc baseFunc = new BaseFunc();
     ApaksvelaPeldkostimiPage apaksvelaPeldkostimiPage = new ApaksvelaPeldkostimiPage(baseFunc);
+
 
     @Test
     public void swimwearFilterTest() {

@@ -1,4 +1,4 @@
-package delfiTests.secondHomeWork;
+package delfiTests.atverskapiTest.pages;
 
 
 public class SecondSweamwearPage {
